@@ -1,0 +1,27 @@
+uuid: 67b73fc6-7709-44df-b85f-41f803026d40
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - d10test_theme
+_core:
+  default_config_hash: 5xXxetryVY6taBVo6BKwVRhjDCRVjU-u0rNaNld925Q
+id: d10test_theme_footer
+theme: d10test_theme
+region: footer
+weight: -6
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: Footer
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

@@ -1,0 +1,32 @@
+uuid: a98aab47-54cc-4ab1-b71b-1ad7116ec885
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.price
+  module:
+    - facets
+    - taxonomy
+  theme:
+    - d10test_theme
+id: d10test_theme_price
+theme: d10test_theme
+region: sidebar_first
+weight: -7
+provider: null
+plugin: 'facet_block:price'
+settings:
+  id: 'facet_block:price'
+  label: Price
+  label_display: visible
+  provider: facets
+  context_mapping: {  }
+  block_id: d10test_theme_price
+visibility:
+  'entity_bundle:taxonomy_term':
+    id: 'entity_bundle:taxonomy_term'
+    negate: false
+    context_mapping:
+      taxonomy_term: '@taxonomy_term.taxonomy_term_route_context:taxonomy_term'
+    bundles:
+      brand: brand

@@ -1,0 +1,22 @@
+uuid: 68346e32-b01f-4311-80bf-71f6fdafafcc
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - d10test_theme
+_core:
+  default_config_hash: jlU3kADA4RlDg0QxReAn8UyNopHrARnFZxEtdhxEbTg
+id: d10test_theme_help
+theme: d10test_theme
+region: content
+weight: -7
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

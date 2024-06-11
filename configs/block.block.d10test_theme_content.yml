@@ -1,0 +1,22 @@
+uuid: bebe0e88-8fa5-44bc-a8f7-8f2527e4c1ab
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - d10test_theme
+_core:
+  default_config_hash: YOhJz8Rj2uNatGR-Q97FBv94aRSmYzV3HEehwKmpbQQ
+id: d10test_theme_content
+theme: d10test_theme
+region: content
+weight: -4
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

@@ -1,0 +1,22 @@
+uuid: 57ddb787-40c6-4149-8c76-de1f7c7ebc1d
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - d10test_theme
+_core:
+  default_config_hash: mEkVO9tsMc6xk-IFcEoZHNT-Sn3wEQK6J5H5VJrgPok
+id: d10test_theme_powered_by_drupal
+theme: d10test_theme
+region: footer
+weight: 0
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

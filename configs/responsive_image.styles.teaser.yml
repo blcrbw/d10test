@@ -1,0 +1,13 @@
+uuid: dfd717e5-c3d6-40d3-a9ba-cb11d7398963
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.medium
+  theme:
+    - bootstrap5
+id: teaser
+label: Teaser
+image_style_mappings: {  }
+breakpoint_group: bootstrap5.screen
+fallback_image_style: medium

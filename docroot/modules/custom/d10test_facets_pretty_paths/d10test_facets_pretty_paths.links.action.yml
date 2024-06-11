@@ -1,0 +1,5 @@
+d10test.product_export:
+  route_name: view.product_export.data_export_1
+  title: 'Export products'
+  appears_on:
+    - system.admin_content

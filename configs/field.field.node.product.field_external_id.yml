@@ -1,0 +1,23 @@
+uuid: 4228c531-ebd7-41e8-b396-d5877b8e2cfd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_external_id
+    - node.type.product
+id: node.product.field_external_id
+field_name: field_external_id
+entity_type: node
+bundle: product
+label: 'External id'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,0 +1,152 @@
+uuid: 0981c23c-8e82-40b1-a1d6-895d55010e98
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.product.field_archived
+    - field.field.node.product.field_brand
+    - field.field.node.product.field_external_id
+    - field.field.node.product.field_price
+    - field.field.node.product.field_quantity
+    - field.field.node.product.field_size
+    - field.field.node.product.field_thickness
+    - node.type.product
+  module:
+    - feeds_tamper
+    - node
+third_party_settings:
+  feeds_tamper:
+    tampers: {  }
+label: 'Product CSV'
+id: product_csv
+description: ''
+help: ''
+import_period: 3600
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: csv
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: product
+  langcode: en
+  insert_new: 1
+  update_existing: 2
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  revision: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  name:
+    value: name
+    label: name
+    machine_name: name
+    type: csv
+  brand:
+    value: brand
+    label: brand
+    machine_name: brand
+    type: csv
+  price:
+    value: price
+    label: price
+    machine_name: price
+    type: csv
+  archived:
+    value: archived
+    label: archived
+    machine_name: archived
+    type: csv
+  thickness:
+    value: thickness
+    label: thickness
+    machine_name: thickness
+    type: csv
+  quantity:
+    value: quantity
+    label: quantity
+    machine_name: quantity
+    type: csv
+  size:
+    value: size
+    label: size
+    machine_name: size
+    type: csv
+  images:
+    value: images
+    label: images
+    machine_name: images
+    type: csv
+  id:
+    value: id
+    label: id
+    machine_name: id
+    type: csv
+mappings:
+  -
+    target: title
+    map:
+      value: name
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_brand
+    map:
+      target_id: brand
+    settings:
+      language: ''
+      reference_by: field_external_id
+      feeds_item: guid
+      autocreate: 0
+      autocreate_bundle: brand
+  -
+    target: field_price
+    map:
+      value: price
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_archived
+    map:
+      value: archived
+    settings:
+      language: null
+  -
+    target: field_thickness
+    map:
+      value: thickness
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_quantity
+    map:
+      value: quantity
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_size
+    map:
+      value: size
+    settings:
+      language: null
+  -
+    target: field_external_id
+    map:
+      value: id
+    settings:
+      language: null
+    unique:
+      value: 1

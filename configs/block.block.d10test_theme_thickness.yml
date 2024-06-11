@@ -1,0 +1,32 @@
+uuid: 0fcd27e2-2834-40aa-8076-2b087368c967
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.thickness
+  module:
+    - facets
+    - taxonomy
+  theme:
+    - d10test_theme
+id: d10test_theme_thickness
+theme: d10test_theme
+region: sidebar_first
+weight: -4
+provider: null
+plugin: 'facet_block:thickness'
+settings:
+  id: 'facet_block:thickness'
+  label: Thickness
+  label_display: '0'
+  provider: facets
+  context_mapping: {  }
+  block_id: d10test_theme_thickness
+visibility:
+  'entity_bundle:taxonomy_term':
+    id: 'entity_bundle:taxonomy_term'
+    negate: false
+    context_mapping:
+      taxonomy_term: '@taxonomy_term.taxonomy_term_route_context:taxonomy_term'
+    bundles:
+      brand: brand

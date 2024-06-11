@@ -1,0 +1,9 @@
+_core:
+  default_config_hash: Eee2yPxbx-GtTowlxw6bfEtn5JdpohybL_OOCy3aUEE
+user_special: false
+regex_pattern: '{(^taxonomy/term)/([0-9]+)/(.+)}'
+submit: 'Save configuration'
+form_build_id: form-JgGzzvQy9KxEfpSWar3DZ8vaQnlHpc7Ulo131q-AtmA
+form_token: SbIRf2eXuxxYjz781pk_lSNX_w_i7dYoktDZIfAPy90
+form_id: path_alias_xt_settings_form
+op: 'Save configuration'

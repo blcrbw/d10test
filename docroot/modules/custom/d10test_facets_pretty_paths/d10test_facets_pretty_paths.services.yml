@@ -1,0 +1,6 @@
+services:
+  d10test_facets_pretty_paths.route_subscriber:
+    class: Drupal\d10test_facets_pretty_paths\RouteSubscriber
+    arguments: []
+    tags:
+      - { name: event_subscriber }

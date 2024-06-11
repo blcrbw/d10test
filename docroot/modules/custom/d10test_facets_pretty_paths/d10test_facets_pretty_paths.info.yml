@@ -1,0 +1,8 @@
+name: 'D10Test Facets Pretty Paths'
+type: module
+description: 'Extends pretty paths for Facets.'
+core_version_requirement: ^9.1 || ^10
+package: Search
+dependencies:
+  - facets_pretty_paths:facets_pretty_paths
+  - path_alias_xt:path_alias_xt

@@ -1,0 +1,27 @@
+uuid: f79bace5-c129-47ef-a312-00db347f49f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - d10test_theme
+_core:
+  default_config_hash: p73EVIweHZuGUCbXD4xwRpOuIvnuOCOSRg5eNDTwg8c
+id: d10test_theme_main_navigation
+theme: d10test_theme
+region: nav_main
+weight: 0
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: true
+visibility: {  }

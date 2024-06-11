@@ -1,0 +1,5 @@
+/vendor/
+/docroot/modules/contrib/
+/docroot/libraries/
+!/docroot/libraries/jquery-ui-slider-pips
+/docroot/themes/contrib/

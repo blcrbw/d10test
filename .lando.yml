@@ -1,0 +1,131 @@
+name: d10test
+recipe: drupal10
+excludes:
+  - ./storage
+config:
+  webroot: docroot
+  php: '8.2'
+  composer_version: '2-latest'
+  drush: true
+  xdebug: debug
+  database: mysql
+env_file:
+  - .env
+services:
+  appserver:
+    ssl: true
+    portforward: true
+    scanner: false
+    build_as_root:
+      # Install xDebug PHP extension.
+      - apt-get install -y ca-certificates curl gnupg
+      - rm -f /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+      - apt-get update && apt-get install -y mc htop vim net-tools iputils-ping python imagemagick libmagickwand-dev libmemcached-dev
+      # Install XHProf PHP extension.
+      - rm -fr /tmp/xhprof/ && cd /tmp && git clone https://github.com/longxinH/xhprof.git
+      - cd /tmp/xhprof/extension && phpize && ./configure && make && make install
+      - echo 'extension=xhprof.so' > /usr/local/etc/php/conf.d/xhprof.ini
+    overrides:
+#      ports:
+#        - 8080:80
+#        - 8083:443
+      environment:
+        PHP_MEMORY_LIMIT: 196M
+        PHP_IDE_CONFIG: "serverName=appserver"
+        PHP_XDEBUG_IDEKEY: "PHPSTORM"
+        PHP_POST_MAX_SIZE: 220M
+        PHP_UPLOAD_MAX_FILESIZE: 200M
+
+  database:
+    type: compose
+    portforward: true
+    app_mount: false
+    services:
+      image: mysql:8.0
+      command: docker-entrypoint.sh mysqld
+      entrypoint: docker-entrypoint.sh
+      environment:
+        - MYSQL_ROOT_PASSWORD=IyBMb2NhbCB
+        - MYSQL_DATABASE=d10test
+        - MYSQL_USER=drupal
+        - MYSQL_PASSWORD=WFscwpNWVN
+      volumes:
+        - database_volume:/var/lib/mysql
+    volumes:
+      database_volume:
+    overrides:
+      ports:
+        - 10306:3306
+
+  memcached:
+    type: memcached:custom
+    portforward: false
+    app_mount: false
+    overrides:
+      image: memcached
+      command: ["-m", "4096"]
+      entrypoint: memcached
+
+  solr:
+    type: solr
+    portforward: true
+    core: drupal
+    config:
+      dir: docroot/modules/contrib/search_api_solr/jump-start/solr7/config-set
+tooling:
+  cr:
+    service: appserver
+    description: "Rebuild drupal caches"
+    cmd: drush cr -y
+    stdout:
+      description: "Rebuilding drupal caches finished"
+  cim:
+    service: appserver
+    description: "Import drupal configuration"
+    cmd: drush cim -y
+    stdout:
+      description: "Importing drupal configuration finished"
+  cex:
+    service: appserver
+    description: "Export drupal configuration"
+    cmd: drush cex -y
+    stdout:
+      description: "Exporting drupal configuration finished"
+  entup:
+    service: appserver
+    description: "Drupal entities update"
+    cmd: drush entup -y
+    stdout:
+      description: "Updating drupal entities finished"
+  updb:
+    service: appserver
+    description: "Run drupal database updates"
+    cmd: drush updb -y
+    stdout:
+      description: "Running drupal database updates finished"
+  git:
+    service: appserver
+  composer:
+    service: appserver
+  xdebug-on:
+    service: appserver
+    description: Enable xdebug for apache.
+    cmd: "docker-php-ext-enable xdebug && /etc/init.d/apache2 reload"
+    user: root
+    stdout:
+      description: X-Debug Enabled
+  xdebug-off:
+    service: appserver
+    description: "Disable xdebug for apache."
+    cmd: "rm /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && /etc/init.d/apache2 reload"
+    user: root
+    stdout:
+      description: "X-Debug Disabled"
+  phpdebug:
+    service: appserver
+    cmd:
+      - php
+    env:
+      XDEBUG_TRIGGER: 1
+      PHP_IDE_CONFIG: "serverName=appserver"
+      PHP_XDEBUG_IDEKEY: "PHPSTORM"

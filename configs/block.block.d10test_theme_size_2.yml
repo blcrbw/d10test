@@ -1,0 +1,29 @@
+uuid: d05ee931-54a5-4e65-9fee-77f835baff4b
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.psize
+  module:
+    - facets
+    - system
+  theme:
+    - d10test_theme
+id: d10test_theme_size_2
+theme: d10test_theme
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'facet_block:psize'
+settings:
+  id: 'facet_block:psize'
+  label: Size
+  label_display: visible
+  provider: facets
+  context_mapping: {  }
+  block_id: d10test_theme_size_2
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/catalog\r\n/catalog/*/*"

@@ -1,0 +1,32 @@
+uuid: d3f80046-ea06-4fdf-b2b0-f23c66f01b29
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.catalog
+  module:
+    - taxonomy
+    - views
+  theme:
+    - d10test_theme
+id: d10test_theme_views_block__catalog_brand_products_block
+theme: d10test_theme
+region: content
+weight: -3
+provider: null
+plugin: 'views_block:catalog-brand_products_block'
+settings:
+  id: 'views_block:catalog-brand_products_block'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  'entity_bundle:taxonomy_term':
+    id: 'entity_bundle:taxonomy_term'
+    negate: false
+    context_mapping:
+      taxonomy_term: '@taxonomy_term.taxonomy_term_route_context:taxonomy_term'
+    bundles:
+      brand: brand

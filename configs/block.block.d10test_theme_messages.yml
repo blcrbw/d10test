@@ -1,0 +1,22 @@
+uuid: d6e649a3-d8ba-4b9c-a427-f8c26fe99045
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - d10test_theme
+_core:
+  default_config_hash: 4kDT7R8yo6-2JEhSYD3IIzzJfyLf8DN5B8pbSQ9GUGo
+id: d10test_theme_messages
+theme: d10test_theme
+region: content
+weight: -10
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: Messages
+  label_display: '0'
+  provider: system
+visibility: {  }

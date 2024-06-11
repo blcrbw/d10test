@@ -1,0 +1,23 @@
+uuid: f9786a0c-3080-4159-b137-9ac979b044cf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_thickness
+    - node.type.product
+id: node.product.field_thickness
+field_name: field_thickness
+entity_type: node
+bundle: product
+label: Thickness
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0.0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

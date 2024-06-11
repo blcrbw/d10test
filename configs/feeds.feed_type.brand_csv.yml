@@ -1,0 +1,69 @@
+uuid: 48b5a5da-5099-4477-a021-b2d08254fefd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.brand.field_external_id
+    - taxonomy.vocabulary.brand
+  module:
+    - taxonomy
+label: 'Brand CSV'
+id: brand_csv
+description: ''
+help: ''
+import_period: 3600
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: csv
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:taxonomy_term'
+processor_configuration:
+  values:
+    vid: brand
+  langcode: en
+  insert_new: 1
+  update_existing: 2
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: false
+  revision: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  name:
+    value: name
+    label: name
+    machine_name: name
+    type: csv
+  id:
+    value: id
+    label: id
+    machine_name: id
+    type: csv
+  logo:
+    value: logo
+    label: logo
+    machine_name: logo
+    type: csv
+mappings:
+  -
+    target: name
+    map:
+      value: name
+    settings:
+      language: ''
+    unique: {  }
+  -
+    target: field_external_id
+    map:
+      value: id
+    settings:
+      language: null
+    unique:
+      value: 1

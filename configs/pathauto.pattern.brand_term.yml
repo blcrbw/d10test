@@ -1,0 +1,22 @@
+uuid: 4b634b48-48f3-4141-95e4-67333657dbae
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: brand_term
+label: 'Brand term'
+type: 'canonical_entities:taxonomy_term'
+pattern: 'catalog/[term:name]'
+selection_criteria:
+  0d1c22f3-b70b-49c7-b7d5-05c082b97064:
+    id: 'entity_bundle:taxonomy_term'
+    negate: false
+    uuid: 0d1c22f3-b70b-49c7-b7d5-05c082b97064
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    bundles:
+      brand: brand
+selection_logic: and
+weight: -5
+relationships: {  }

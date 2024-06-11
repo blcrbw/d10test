@@ -1,0 +1,29 @@
+uuid: 9d5824b5-d994-4957-9495-6ad9b37450c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.brands
+  module:
+    - system
+    - views
+  theme:
+    - d10test_theme
+id: d10test_theme_views_block__brands_brands_block
+theme: d10test_theme
+region: content
+weight: -5
+provider: null
+plugin: 'views_block:brands-brands_block'
+settings:
+  id: 'views_block:brands-brands_block'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /catalog
